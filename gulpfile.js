@@ -4,7 +4,7 @@ const gulp = require("gulp");
 
 // Copy third party libraries from /node_modules into /vendor
 gulp.task('vendor', function(cb) {
-
+	
   // Bootstrap
   gulp.src([
       './node_modules/bootstrap/dist/**/*',
@@ -19,6 +19,12 @@ gulp.task('vendor', function(cb) {
       '!./node_modules/jquery/dist/core.js'
     ])
     .pipe(gulp.dest('./vendor/jquery'))
+	
+	connect.server({
+		root: ['C:\\Users\stval\Documents\is219_p1'],
+		port: process.env.PORT || 5000, //localhost: 5000
+		livereload: false
+	});
 
   cb();
 
